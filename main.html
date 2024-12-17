@@ -29,14 +29,14 @@
         }
         .content-panel {
             background-color: #ffffff00; 
-            max-width: 700px;
-            max-height: 410px; 
-            width: 100%; 
+            width: 700px;
+            height: 100px; 
+            width: auto; 
             flex: 1; 
             display: flex;
             flex-direction: column; 
-            overflow-y: auto; 
             border-radius: 5px; 
+            padding-bottom: 800px;
         }
         .ection-panel {
             background-color: rgba(0, 0, 0, 0);
@@ -54,12 +54,10 @@
             background-color: #4caf4f00;
             color: white;
             border: none;
-            border-radius: 5px;
-            padding: 10px; 
-            flex-grow: 1; 
             margin: 5px; 
             cursor: pointer;
-            min-width: 150px; 
+            width: 100px;
+            height: 100px;
         }
         .quest-button {
             background-color: #075c07;
@@ -96,7 +94,6 @@
             background-color: #000000;
             border-radius: 5px;
             padding: 6px;
-            margin-top: 00px;
             margin-right: 70px;
         }
         .panel-dostoprimech{
@@ -138,11 +135,11 @@
             <button class="button" @click="openPanel === 5 ? openPanel = null : openPanel = 5;"><img src="file/к6.png" class="button-econ"></button>
             <button class="button" @click="openPanel === 6 ? openPanel = null : openPanel = 6;"><img src="file/к1.png" class="button-econ"></button>
         </div>
-        
+        <div x-show="openPanel === null" x-transition class="panel-dostoprimech"><img src="file/vezd.jpg" height="500"; width="600"></div>
         <div x-show="openPanel === 1" x-transition class="panel-dostoprimech">
             <img src="file/1.jpg" class="img-mirny" alt="Город Мирный">
             <div class="text-container">
-                <p>Месторождение алмазов Кимберлитовая трубка Мир открыта в 1955 году. Месторождение разрабатывалось вначале открытым способом, а затем по мере углубления карьера постепенно разработка перешла на подземный способ добычи алмазов.</p>
+                <p>Месторождение алмазов Кимберлитовая трубка Мир открыта в 1955 году.</p><p> Месторождение разрабатывалось вначале открытым способом,</p> <p>а затем по мере углубления карьера постепенно разработка перешла</p> <p>на подземный способ добычи алмазов.</p>
             </div>
             </div>
         <div x-show="openPanel === 2" x-transition class="panel-text"><p>гостиница 	«Уютный» адрес - ул. Петра Алексеева, д.12. телефон - 8 (41136) 4-82-51, +7 (924) 172-28-58, +7 (914) 258-21-20</p>
@@ -168,7 +165,6 @@
         <div x-show="openPanel === 5" x-transition class="panel-text">
             <button class="quest-button" id="randomTaskButton">Случайное задание</button>
 <span id="taskText"></span>
-
 <script>
     const tasks = [
         "сфотографируйся на фоне трубки мир",
@@ -195,8 +191,9 @@
         <div x-show="openPanel === 6" x-transition class="panel-text-mirny">
             <img src="file/mirny.jpg" class="img-mirny" alt="Город Мирный">
             <div class="text-container">
-                <p>Город был основан в 1955 году как рабочий поселок, связанный с разработкой алмазных месторождений. В 1963 году он получил статус города.
-                    Мирный стал известен благодаря своему алмазному комбинату, который является одним из крупнейших в мире.</p>
+                <p>Город был основан в 1955 году как рабочий поселок,</p><p>связанный с разработкой алмазных месторождений.</p>
+                <p> В 1963 году он получил статус города.Мирный стал</p><p> известен благодаря своему алмазному комбинату,</p>
+                 <p>который является одним из крупнейших в мире.</p>
             </div>
         </div>
     </div>
