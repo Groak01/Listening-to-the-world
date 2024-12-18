@@ -2,7 +2,9 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <meta name="viewport" content="width=device-width initial-scale=1 user-scalable=no">
     <title>Голос мира</title>
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.10.5/dist/cdn.min.js" defer></script>
     <style>
@@ -10,139 +12,191 @@
             font-family: Arial, sans-serif;
             background-image: url('file/fon\ .jpg');
             margin: 0;
-            padding: 0;
-            height: 100vh; 
+            padding: 0; 
+            min-height: 100vh; 
             display: flex; 
             flex-direction: column; 
-            align-items: center; 
+            align-items: center;
         }
+
         header {
             background-color: #ffffff;
             color: rgb(0, 0, 0); 
             border-radius: 5px;
             padding: 10px;
             text-align: center;
+
             width: 100%; 
+            box-sizing: border-box;
         }
-        h1 {
-            margin: 0;
-        }
-        .content-panel {
+
+        .content-panel, .content-panel2 {
             background-color: #ffffff00; 
-            width: 700px;
-            height: 100px; 
-            width: auto; 
+            width: auto;
+            max-width: 800px;  
             flex: 1; 
             display: flex;
             flex-direction: column; 
             border-radius: 5px; 
-            padding-bottom: 800px;
-            scrollbar-width: auto; 
+            padding: 10px;
+            margin: 0 auto;
         }
-        .ection-panel {
-            background-color: rgba(0, 0, 0, 0);
-            border-radius: 5px; 
-            margin-top: 20px; 
+
+        .button-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 10px;
             padding: 10px;
         }
-        .button-container {
-            display: flex; 
-            justify-content: space-around; 
-            flex-wrap: wrap; 
-            margin-bottom: 10px; 
-        }
+
         .button {
             background-color: #4caf4f00;
             color: white;
             border: none;
-            margin: 5px; 
+            padding: 5px;
             cursor: pointer;
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: center;
+        }
+
+        .button-econ {
             width: 100px;
             height: 100px;
+            max-width: 100%;
         }
-        .quest-button {
-            background-color: #075c07;
-            color: white;
-            border: none;
+
+        .panel-dostoprimech {
+            background-color: #ffffffbb;
             border-radius: 5px;
-            padding: 10px 0; 
-            flex-grow: 1; 
-            margin: 5px; 
-            cursor: pointer;
-            min-width: 150px; 
+            padding: 15px;
+            margin-top: 10px;
+            display: flex;
+            flex-direction: column;
+            
         }
-        .panel-text {
+        .panel-dostoprimech2 {
+            background-color: #ffffffbb;
+            border-radius: 5px;
+            max-width: 500px;
+            padding: 15px;
+            margin-top: 10px;
+            display: flex;
+        }
+        .img-mirny {
+            width: 100%;
+            height: auto;
+            max-width: 300px;
+            height: 200px;
+        }
+
+        .plitki {
+            padding: 10px;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            background-color: #ffffffb7;
+            margin-top: 10px;
+        }
+
+        .audio {
+            width: 100%;
+            max-width: 200px;
+            margin: 10px auto;
+        }
+        @media screen and (min-width: 768px) {
+            .panel-dostoprimech {
+                flex-direction: row;
+            }
+
+            .plitki {
+                flex-direction: row;
+            }
+
+            .button-container {
+                grid-template-columns: repeat(6, 1fr);
+            }
+
+            .img-mirny {
+                margin: 0 10px 0 0;
+            }
+        }
+
+        @media screen and (max-width: 767px) {
+            .text-container {
+                text-align: center;
+                
+            }
+
+            .panel-text-mirny {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                display: flex;
+            }
+
+            .post {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+        }
+
+        .panel-text{
             background-color: #ffffffab;
             border-radius: 5px;
             padding: 10px;
             margin-top: 10px;
         }
         .panel-text-mirny {
-            background-color: #fafafab9;
+            display: flex;
+            background-color: #ffffffab;
             border-radius: 5px;
             padding: 10px;
             margin-top: 10px;
+        }
+        .panel-mirny {
+            background-color: #000000;
+            width: 100%;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+
+        .post {
+            background-color: rgba(203, 255, 209, 0.753);
+            display: flex;
             align-items: center;
+            padding: 10px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .quest-button {
+            background-color: #075c07;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            width: 100%;
+            max-width: 300px;
+            margin: 10px auto;
+            cursor: pointer;
+        }
+        .invisible-label{
+            background-color: rgba(255, 0, 0, 0);
+            height: 500px;
+            width: 100%;
             display: flex;
         }
-        .post {
-            background-color: rgba(255, 255, 255, 0.753);
-            display: flex; 
-            align-items: center;
-            max-width: 500px;
-        }
-        .panel-mirny{
-            background-color: #000000;
-            height: auto;
-            width: 500px;
-            margin-top: 10px;
-            border-radius: 5px;
-            margin-right: 70px;
-        }
-        .panel-dostoprimech{
-            background-color: #ffffffbb;
-            border-radius: 5px;
-            padding: 40px;
-            margin-top: 10px;
-            display: flex; 
-        }
-        .img-mirny{
-            width: 300px; 
-            height: 200px;
-            margin-right: 10px;
-        }
-        .kalendar{
-            width: 400px;
-            height: 300px;
-            padding: 50px;
-        }
-        .button-econ{
-            width: 100px;
-            height: 100px;
-        }
-        .plitki{
-            padding: 10px;
-            border-radius: 5px;
-            display: flex; 
-            width: auto;
-            height: auto;
-            margin-top: 10px;
-            background-color: #ffffffb7;
-        }
-        .plitki{
-            padding: 10px;
-            border-radius: 5px;
-            display: flex; 
-            width: auto;
-            height: auto;
-            margin-top: 10px;
-            background-color: #ffffffb7;
-        }
-        .audio{
-        }
-        .audio::-webkit-media-controls-play-button {
-            background-color: #fd6262; 
-            border-radius: 10px;
+        .post_button2{
+            cursor: pointer;
+            padding-right: 110px;
+            border-radius: 100px;
+            width: 80px;
+            height: 80px;
+            background-color: #ffffff00;
+            border: none;
         }
     </style>
 </head>
@@ -151,42 +205,42 @@
     <h1>Слушая мир</h1>
 </header>
 
-<div class="content-panel" x-data="{ openPanel: null }">
+<div class="content-panel2" x-data="{ openPanel: null }">
 
     <div class="ection-panel">
         <div class="button-container">
             <button class="button" @click="openPanel === 1 ? openPanel = null : openPanel = 1;"><img src="file/к2.png" class="button-econ"></button>
             <button class="button" @click="openPanel === 2 ? openPanel = null : openPanel = 2;"><img src="file/к3.png" class="button-econ"></button>
             <button class="button" @click="openPanel === 3 ? openPanel = null : openPanel = 3;"><img src="file/к4.png" class="button-econ"></button>
-            <button class="button" @click="openPanel === 4 ? openPanel = null : openPanel = 4;"><img src="file/к55.png" class="button-econ"></button>
+            <button class="button" @click="openPanel === 4 ? openPanel = null : openPanel = 4;"><img src="file/к5.png" class="button-econ"></button>
             <button class="button" @click="openPanel === 5 ? openPanel = null : openPanel = 5;"><img src="file/к6.png" class="button-econ"></button>
             <button class="button" @click="openPanel === 6 ? openPanel = null : openPanel = 6;"><img src="file/к1.png" class="button-econ"></button>
         </div>
-        <div x-show="openPanel === null" x-transition class="panel-dostoprimech"><img src="file/vezd.jpg" height="500"; width="600"></div>
+        <div x-show="openPanel === null" x-transition class="panel-dostoprimech2" style="margin-left: 100px;" ><img src="file/vezd.jpg" style: height="auto"; width="500"></div>
         <div x-show="openPanel === 1" x-transition class="panel-dostoprimech">
             <img src="file/1.jpg" class="img-mirny" alt="Город Мирный">
             <div class="text-container">
-                <p>Месторождение алмазов Кимберлитовая трубка Мир открыта в 1955 году.</p><p> Месторождение разрабатывалось вначале открытым способом,</p> <p>а затем по мере углубления карьера постепенно разработка перешла</p> <p>на подземный способ добычи алмазов.</p>
+                <p>Месторождение алмазов Кимберлитовая трубка Мир <p> открыта в 1955 году.</p><p> Месторождение разрабатывалось вначале открытым способом,</p> <p>а затем по мере углубления карьера постепенно разработка перешла</p> <p>на подземный способ добычи алмазов.</p>
                 <audio controls class="audio">
                     <source src="file/mir.mp3" type="audio/mpeg">
                     Ваш браузер не поддерживает элемент audio.
                   </audio>
             </div>
             </div>
-        <div x-show="openPanel === 2" x-transition class="content-panel"><a href="https://yandex.ru/maps/org/gostevoy_dom_uyutny/146252541855/?ll=114.021048%2C62.532457&z=16" style="text-decoration: none; color: inherit;"><div class="plitki"><img src="file/yutni.jpg" class="img-mirny"><p>гостиница 	«Уютный» адрес - ул. Петра Алексеева, д.12. телефон - 8 (41136) 4-82-51, +7 (924) 172-28-58, +7 (914) 258-21-20</p></div></a>
-        <a href="https://yandex.ru/maps/org/azimut_otel_mirny/164046140087/?ll=113.977705%2C62.541372&z=16" style="text-decoration: none; color: inherit;"><div class="plitki"><p>гостиница «Азимут» адрес -   ул. Ленина, 11А телефон - 8 (41136) 4-64-09, 8 (800) 200-00-48,8-984-110-12-38,8-924-242-63-43</p><img src = "file/zarnica.jpg" class="img-mirny"></div></a>
-        <a href="https://yandex.ru/maps/org/virazh/9486902151/?ll=114.026955%2C62.533722&z=15" style="text-decoration: none; color: inherit;"><div class="plitki"><img src = "file/virage.jpg" class="img-mirny"><p>гостиница «Вираж» адрес -   ул. Ручейная, 1 телефон - 8-914-252-66-06</p></div></a>
+        <div x-show="openPanel === 2" x-transition class="content-panel"><a href="https://yandex.ru/maps/org/gostevoy_dom_uyutny/146252541855/?ll=114.021048%2C62.532457&z=16" style="text-decoration: none; color: inherit;"><div class="plitki"><img src="file/yutni.jpg" class="img-mirny"><p style="font-family: Bahnschrift;">гостиница 	«Уютный» адрес - ул. Петра Алексеева, д.12. телефон - 8 (41136) 4-82-51, +7 (924) 172-28-58, +7 (914) 258-21-20</p></div></a>
+        <a href="https://yandex.ru/maps/org/azimut_otel_mirny/164046140087/?ll=113.977705%2C62.541372&z=16" style="text-decoration: none; color: inherit;"><div class="plitki"><p style="font-family: Bahnschrift;">гостиница «Азимут» адрес -   ул. Ленина, 11А телефон - 8 (41136) 4-64-09, 8 (800) 200-00-48,8-984-110-12-38,8-924-242-63-43</p><img src = "file/zarnica.jpg" class="img-mirny"></div></a>
+        <a href="https://yandex.ru/maps/org/virazh/9486902151/?ll=114.026955%2C62.533722&z=15" style="text-decoration: none; color: inherit;"><div class="plitki"><img src = "file/virage.jpg" class="img-mirny"><p style="font-family: Bahnschrift;">гостиница «Вираж» адрес -   ул. Ручейная, 1 телефон - 8-914-252-66-06</p></div></a>
             </div>
-        <div x-show="openPanel === 3" x-transition class="content-panel">	<a href="https://yandex.ru/maps/org/papa_grill/157435445151/?ll=113.980803%2C62.545842&z=14"style="text-decoration: none; color: inherit;"><div class="plitki"><img src="file/papagril.jpg"class="img-mirny"><p>Кафе "Papa grill" - Улица Тихонова, 5/1</p></div></a>
-        <a href="https://yandex.ru/maps/org/shagane/67023086362/?ll=113.975305%2C62.547577&z=16"style="text-decoration: none; color: inherit;" ><div class="plitki";><p>Кондитерская "Шагане" - ул. Советская, д. 13 </p><img src="file/shagane.jpg" class="img-mirny"></div></a>
+        <div x-show="openPanel === 3" x-transition class="content-panel">	<a href="https://yandex.ru/maps/org/papa_grill/157435445151/?ll=113.980803%2C62.545842&z=14"style="text-decoration: none; color: inherit;"><div class="plitki"><img src="file/papagril.jpg"class="img-mirny"><p style="font-family: Bahnschrift;">Кафе "Papa grill" - Улица Тихонова, 5/1</p></div></a>
+        <a href="https://yandex.ru/maps/org/shagane/67023086362/?ll=113.975305%2C62.547577&z=16"style="text-decoration: none; color: inherit;" ><div class="plitki";><p style="font-family: Bahnschrift;">Кондитерская "Шагане" - ул. Советская, д. 13  ᅠ ᅠ </p><img src="file/shagane.jpg" class="img-mirny"></div></a>
         </div>
         <div x-show="openPanel === 4" x-transition class="content-panel">
-            <div class="plitki"><p>Такси Максим - +7 (41136) 2-76-76</p></div>
-            <div class="plitki"><p>Восьмёрочка - +7 (41136) 2-88-88</p></div>
-            <div class="plitki"><p>Норд - +7 (41136) 3-90-90</p></div>
-            <div class="plitki"><p>Дилижанс - +7 (41136) 2-47-00</p></div>
-            <div class="plitki"><p>Русская тройка - +7 (41136) 4-43-33</p></div>
-            <div class="plitki"><p>Яндекс - 8-800-770-70-74</p></div>
+            <div class="plitki"><p style="font-family: Bahnschrift;">Такси Максим - +7 (41136) 2-76-76</p></div>
+            <div class="plitki"><p style="font-family: Bahnschrift;">Восьмёрочка - +7 (41136) 2-88-88</p></div>
+            <div class="plitki"><p style="font-family: Bahnschrift;">Норд - +7 (41136) 3-90-90</p></div>
+            <div class="plitki"><p style="font-family: Bahnschrift;">Дилижанс - +7 (41136) 2-47-00</p></div>
+            <div class="plitki"><p style="font-family: Bahnschrift;">Русская тройка - +7 (41136) 4-43-33</p></div>
+            <div class="plitki"><p style="font-family: Bahnschrift;">Яндекс - 8-800-770-70-74</p></div>
         </div>
         <div x-show="openPanel === 5" x-transition class="panel-text">
             <button class="quest-button" id="randomTaskButton">Случайное задание</button>
@@ -222,9 +276,35 @@
                  <p>который является одним из крупнейших в мире.</p>
             </div>
         </div>
-        <a href="https://mibs.saha.muzkult.ru/"style="text-decoration: none; color: inherit;"><div class="panel-mirny"><div class = 'post'><img src="file/post1.jpg" style="width: 200px; 
-        height: 200px; "><div style="color: rgb(8, 8, 8);"></div><p>в библиотеке проводится мастеркласс </p></div></div></a>
-    </div>
+        <div x-data="{ event: 1 }">
+            <div class="invisible-label">
+                <button @click="if (event < 2) event++" class="post_button2"><img src="file/стрелка2.png" class="post_button2"></button>
+        
+                <a href="https://mibs.saha.muzkult.ru/" style="text-decoration: none; color: inherit;">
+                    <div class="panel-mirny" x-show="event === 1">
+                        <div class='post'>
+                            <img src="file/post1.jpg" style="width: 200px; height: 200px;">
+                            <div style="color: rgb(8, 8, 8);"></div>
+                            <p style="margin:10px; font-size: 24px; font-family: Bahnschrift;">
+                                В нашей библиотеке с радостью объявляем о проведении мастер-класса! Это отличная возможность для всех желающих развить свои навыки и узнать что-то новое. Мастер-класс будет проходить 19 декабря и будет посвящен резьбе по дереву.
+                            </p>
+                        </div>
+                    </div>
+                </a>
+        
+                <div x-show="event === 0" style="font-size: 24px; font-family: Bahnschrift; margin-top: 10px;">
+                    <div class='post'>
+                        <img src="file/cdo.png" style="width: 200px; height: 200px;">
+                        <div style="color: rgb(8, 8, 8);"></div>
+                        <p style="margin:10px; font-size: 24px; font-family: Bahnschrift;">
+                            В Центре дополнительного образования стартует хакатон "Моя профессия ИТ"! Это уникальное событие, которое объединит молодых специалистов, студентов и всех, кто интересуется информационными технологиями. Хакатон пройдет с 17 по 18 декабря и станет отличной возможностью для участников продемонстрировать свои навыки, поработать в команде и решить реальные задачи в области ИТ
+                        </p>
+                    </div>
+                </div>
+        
+                <button class="post_button2" @click="if (event > 0) event--"><img src="file/стрелка1.png" class="post_button2"></button>
+            </div>
+        </div>
    
     
         
