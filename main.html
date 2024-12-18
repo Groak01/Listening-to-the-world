@@ -72,13 +72,13 @@
             min-width: 150px; 
         }
         .panel-text {
-            background-color: #ffffff;
+            background-color: #ffffffab;
             border-radius: 5px;
             padding: 10px;
             margin-top: 10px;
         }
         .panel-text-mirny {
-            background-color: #fafafa;
+            background-color: #fafafab9;
             border-radius: 5px;
             padding: 10px;
             margin-top: 10px;
@@ -86,7 +86,7 @@
             display: flex;
         }
         .post {
-            background-color: rgb(255, 255, 255);
+            background-color: rgba(255, 255, 255, 0.753);
             display: flex; 
             align-items: center;
             max-width: 500px;
@@ -97,11 +97,10 @@
             width: 500px;
             margin-top: 10px;
             border-radius: 5px;
-            padding: 6px;
             margin-right: 70px;
         }
         .panel-dostoprimech{
-            background-color: #ffffff;
+            background-color: #ffffffbb;
             border-radius: 5px;
             padding: 40px;
             margin-top: 10px;
@@ -139,6 +138,12 @@
             margin-top: 10px;
             background-color: #ffffffb7;
         }
+        .audio{
+        }
+        .audio::-webkit-media-controls-play-button {
+            background-color: #fd6262; 
+            border-radius: 10px;
+        }
     </style>
 </head>
 
@@ -162,6 +167,10 @@
             <img src="file/1.jpg" class="img-mirny" alt="Город Мирный">
             <div class="text-container">
                 <p>Месторождение алмазов Кимберлитовая трубка Мир открыта в 1955 году.</p><p> Месторождение разрабатывалось вначале открытым способом,</p> <p>а затем по мере углубления карьера постепенно разработка перешла</p> <p>на подземный способ добычи алмазов.</p>
+                <audio controls class="audio">
+                    <source src="file/mir.mp3" type="audio/mpeg">
+                    Ваш браузер не поддерживает элемент audio.
+                  </audio>
             </div>
             </div>
         <div x-show="openPanel === 2" x-transition class="content-panel"><a href="https://yandex.ru/maps/org/gostevoy_dom_uyutny/146252541855/?ll=114.021048%2C62.532457&z=16" style="text-decoration: none; color: inherit;"><div class="plitki"><img src="file/yutni.jpg" class="img-mirny"><p>гостиница 	«Уютный» адрес - ул. Петра Алексеева, д.12. телефон - 8 (41136) 4-82-51, +7 (924) 172-28-58, +7 (914) 258-21-20</p></div></a>
